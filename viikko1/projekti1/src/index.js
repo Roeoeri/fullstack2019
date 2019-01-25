@@ -11,7 +11,7 @@ const Part = (props) =>{
     return(
         <div>
             <p>
-        {props.sisalto}  {props.maara}
+        {props.kurssi.name}  {props.kurssi.excercises}
             </p>
         </div>
     )
@@ -21,7 +21,9 @@ const Total = (props)=>{
     return(
         <div>
             <p>
-                yhteensä {props.yhteensa} tehtävää
+                yhteensä {props.taulukko[0].excercises + 
+                          props.taulukko[1].excercises +
+                          props.taulukko[2].excercises} tehtävää
             </p>
         </div>
     )
@@ -30,40 +32,44 @@ const Total = (props)=>{
 const Content= (props) =>{
     return(
         <div>
-            <Part sisalto ={props.sisalto1} maara={props.maara1}/>
-            <Part sisalto ={props.sisalto2} maara={props.maara2}/>
-            <Part sisalto ={props.sisalto3} maara={props.maara3}/>
+            
+            <Part kurssi ={props.taulukko[0]}/>
+            <Part kurssi ={props.taulukko[1]}/>
+            <Part kurssi ={props.taulukko[2]}/>
         </div>
     )
 }
 
-
-
-
-
-
-
-
 const App = () => {
-  const course = 'Half Stack -sovelluskehitys'
-  const part1 = 'Reactin perusteet'
-  const exercises1 = 10
-  const part2 = 'Tiedonvälitys propseilla'
-  const exercises2 = 7
-  const part3 = 'Komponenttien tila'
-  const exercises3 = 14
+  
+  const course = {
+  name: 'Half Stack -sovelluskehitys',
+  parts: [
+  {
+      name: 'Reactin alkeet',
+      excercises: 10
+  },
+  {
+      name: 'Tiedonvälitys propseilla',
+      excercises: 7
+  },
+  {
+      name: 'Komponenttien tila',
+      excercises: 14
 
+  
+  }
+]
+}
   return (
     <div>
-      <Header kurssi={course}/>
-
-      
-      <Content sisalto1={part1} maara1={exercises1}
-               sisalto2={part2} maara2={exercises2}
-               sisalto3={part3} maara3={exercises3}/>
+      <Header kurssi={course.name}/>
 
 
-      <Total yhteensa={exercises1 + exercises2 + exercises3}/>
+      <Content  taulukko={course.parts} />
+
+
+      <Total taulukko ={course.parts}/>
     </div>
   )
 }
