@@ -9,7 +9,7 @@ const Statistics = (props) =>{
      let keskiarvo = (1*hyva + 0*neutraali+ -1*huono)/yhteensa
      let positiivisia = (100*hyva)/yhteensa
 
-     if(yhteensa ==0){
+     if(yhteensa === 0){
          return(
              <div>
                  <h1>Statistiikka</h1>
@@ -22,6 +22,9 @@ const Statistics = (props) =>{
       return(
         <div>
             <h1>Statistiikka</h1>
+
+            <table>
+            <tbody>
           <Statistic name = "Positiivisia" arvo= {hyva} />
           <Statistic name = "Neutraaleja" arvo = {neutraali}/>
           <Statistic name = "Negatiivisia" arvo= {huono} />
@@ -29,18 +32,21 @@ const Statistics = (props) =>{
           <Statistic name = "Keskiarvo" arvo= {keskiarvo} />
           <Statistic name = "Positiivisia" arvo={positiivisia}
           merkki = "%" />
+          </tbody>
+          </table>
         </div>
-        
 
       )
 }
 
 const Statistic = (props) =>{
       return(
+          
           <tr>
               <td>{props.name} &emsp;  </td>  
               <td>{props.arvo} {props.merkki}</td>
           </tr>
+          
       )
 }
 
@@ -97,6 +103,7 @@ const App = () => {
 
       <Statistics hyva={good} neutraali={neutral} 
         huono={bad}/>
+
 
     </div>
 
