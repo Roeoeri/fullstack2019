@@ -8,6 +8,40 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+h2{
+  color: royalblue;
+  font-style: italic
+}
+
+.pass{
+
+  color:black;
+  background: lightgreen;
+  font-size: 20px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+}
+
+.error{
+
+  color:black;
+  background:pink;
+  font-size: 20px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+
+
+}
+
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
